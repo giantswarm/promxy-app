@@ -1,0 +1,68 @@
+version: 2.1
+
+orbs:
+  architect: giantswarm/architect@0.10.1
+
+workflows:
+  build:
+    jobs:
+      - architect/push-to-app-catalog:
+          context: architect
+          name: app-catalog
+          app_catalog: "control-plane-catalog"
+          app_catalog_test: "control-plane-test-catalog"
+          chart: "promxy-app"
+          filters:
+            tags:
+              only: /^v.*/
+
+      # - architect/push-to-app-collection:
+      #     context: architect
+      #     name: aws-app-collection
+      #     app_name: "promxy-app"
+      #     app_namespace: "monitoring"
+      #     app_collection_repo: "aws-app-collection"
+      #     unique: "true"
+      #     requires:
+      #     - push-to-quay
+      #     - push-to-aliyun
+      #     - app-catalog
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /^v.*/
+
+      # - architect/push-to-app-collection:
+      #     context: architect
+      #     name: "azure-app-collection"
+      #     app_name: "promxy-app"
+      #     app_namespace: "monitoring"
+      #     app_collection_repo: "azure-app-collection"
+      #     unique: "true"
+      #     requires:
+      #     - push-to-quay
+      #     - push-to-aliyun
+      #     - app-catalog
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /^v.*/
+
+      # - architect/push-to-app-collection:
+      #     context: architect
+      #     name: kvm-app-collection
+      #     app_name: "promxy-app"
+      #     app_namespace: "monitoring"
+      #     app_collection_repo: "kvm-app-collection"
+      #     unique: "true"
+      #     requires:
+      #     - push-to-quay
+      #     - push-to-aliyun
+      #     - app-catalog
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /^v.*/

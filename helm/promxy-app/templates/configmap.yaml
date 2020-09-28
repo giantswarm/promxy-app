@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "resource.default.name" . }}
+  namespace: {{ include "resource.default.namespace" . }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+data:
+  config.yaml: |
+    ##
+    ## Regular prometheus configuration
+    ##
+    global:
+      evaluation_interval: 5s
+      external_labels:
+        source: promxy
+
+    # remote_write configuration is used by promxy as its local Appender, meaning all
+    # metrics promxy would "write" (not export) would be sent to this. Examples
+    # of this include: recording rules, metrics on alerting rules, etc.
+    remote_write:
+      - url: http://localhost:8083/receive
+ 
+    ##
+    ### Promxy configuration
+    ##
+    promxy:
+      server_groups:
+{{ toYaml .Values.promxy.serverGroups | indent 8 }}

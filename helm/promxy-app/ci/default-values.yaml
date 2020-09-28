@@ -1,0 +1,36 @@
+---
+Installation:
+  V1:
+    Auth:
+      Vault:
+        Address: ""
+    Name: ""
+    Monitoring:
+      Prometheus:
+        Address: ""
+        Host: ""
+        Letsencrypt: false
+        Storage:
+          Enabled: true
+          CreatePVC: true
+        EtcdClientCertificates:
+          Ca: ""
+          Crt: ""
+          Key: ""
+    Provider:
+      Kind: ""
+    Registry:
+      Domain: ""
+    Security:
+      RestrictAccess:
+        Enabled: false
+      Subnet:
+        VPN: ""
+    Secret:
+      Certificate:
+        Monitoring:
+          CrtPem: ""
+          KeyPem: ""
+      Registry:
+        PullSecret:
+          DockerConfigJSON: ""
