@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add healthchecks and allow port configuration
+
 ## [0.0.1] - 2020-09-29
 
 ### Added

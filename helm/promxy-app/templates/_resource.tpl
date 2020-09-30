@@ -11,6 +11,10 @@ room for such suffix.
 {{- .Release.Name | replace "." "-" | trunc 47 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- define "resource.configmap.name" -}}
+{{- include "resource.default.name" . -}}-configmap
+{{- end -}}
+
 {{- define "resource.psp.name" -}}
 {{- include "resource.default.name" . -}}-psp
 {{- end -}}

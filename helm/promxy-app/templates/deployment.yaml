@@ -27,13 +27,42 @@ spec:
       containers:
       - name: {{ include "name" . }}
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.image.name }}:{{ .Values.promxy.image.tag }}"
-        ports:
-        - containerPort: {{ .Values.promxy.port }}
         args:
+        - "--bind-addr=:{{ .Values.promxy.port }}"
         - "--config={{ .Values.promxy.mountPath }}/config.yaml"
         - "--web.enable-lifecycle"
+        # - "--web.external-url"
         command:
         - "/bin/promxy"
+        ports:
+        - containerPort: {{ .Values.promxy.port }}
+          name: web
+          protocol: TCP
+        livenessProbe:
+          failureThreshold: 6
+          httpGet:
+            path: /-/healthy
+            port: web
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 3
+        readinessProbe:
+          failureThreshold: 120
+          httpGet:
+            path: /-/ready
+            port: web
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 3
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -44,6 +73,13 @@ spec:
         - "--volume-dir={{ .Values.promxy.mountPath }}"
         - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/-/reload"
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
+        resources:
+          limits:
+            cpu: 25m
+            memory: 25Mi
+          requests:
+            cpu: 25m
+            memory: 25Mi
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -53,4 +89,4 @@ spec:
       volumes:
       - name: promxy-config
         configMap:
-          name: {{ include "resource.default.name" . }}
+          name: {{ include "resource.configmap.name" . }}
