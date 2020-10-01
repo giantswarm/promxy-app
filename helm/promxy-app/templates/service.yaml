@@ -5,8 +5,15 @@ metadata:
   namespace: {{ include "resource.default.namespace" . }}
   labels:
     {{- include "labels.common" . | nindent 4 }}
+    giantswarm.io/monitoring: "true"
+  annotations:
+    giantswarm.io/monitoring-path: "/metrics"
+    giantswarm.io/monitoring-port: "{{ .Values.promxy.service.port }}"
 spec:
   ports:
-  - port: {{ .Values.promxy.service.port }}
+  - name: web
+    protocol: TCP
+    port: {{ .Values.promxy.service.port }}
+    targetPort: {{ .Values.promxy.port }}
   selector:
     {{- include "labels.selector" . | nindent 4 }}

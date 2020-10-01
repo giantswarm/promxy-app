@@ -26,4 +26,6 @@ data:
     ##
     promxy:
       server_groups:
+{{- if .Values.promxy.serverGroups }}
 {{ toYaml .Values.promxy.serverGroups | indent 8 }}
+{{- end }}
