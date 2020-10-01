@@ -89,4 +89,4 @@ spec:
       volumes:
       - name: promxy-config
         configMap:
-          name: {{ include "resource.configmap.name" . }}
+          name: {{ include "resource.default.name" . }}

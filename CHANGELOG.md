@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add healthchecks and allow port configuration
+- Added healthchecks and allow port configuration
+- Define resource requests/limits to help with scheduling
+- Set monitoring labels and annotations so the service is picked up by Giant Swarm monitoring
 
 ## [0.0.1] - 2020-09-29
 
