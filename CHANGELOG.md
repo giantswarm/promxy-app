@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2020-10-01
+
 ### Added
 
 - Added healthchecks and allow port configuration
@@ -19,5 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/giantswarm/promxy-app/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/giantswarm/promxy-app/releases/tag/v0.0.1
