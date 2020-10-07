@@ -30,8 +30,9 @@ spec:
         args:
         - "--bind-addr=:{{ .Values.promxy.port }}"
         - "--config={{ .Values.promxy.mountPath }}/config.yaml"
+        - "--log-level=debug"
         - "--web.enable-lifecycle"
-        # - "--web.external-url"
+        - "--web.external-url=/promxy"
         command:
         - "/bin/promxy"
         ports:
@@ -41,7 +42,7 @@ spec:
         livenessProbe:
           failureThreshold: 6
           httpGet:
-            path: /-/healthy
+            path: /promxy/-/healthy
             port: web
             scheme: HTTP
           periodSeconds: 5
@@ -50,7 +51,7 @@ spec:
         readinessProbe:
           failureThreshold: 120
           httpGet:
-            path: /-/ready
+            path: /promxy/-/ready
             port: web
             scheme: HTTP
           periodSeconds: 5
@@ -71,7 +72,7 @@ spec:
       - name: promxy-server-configmap-reload
         args:
         - "--volume-dir={{ .Values.promxy.mountPath }}"
-        - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/-/reload"
+        - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/promxy/-/reload"
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
         resources:
           limits:
