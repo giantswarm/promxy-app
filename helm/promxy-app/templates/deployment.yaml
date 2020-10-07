@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -58,9 +58,6 @@ spec:
           successThreshold: 1
           timeoutSeconds: 3
         resources:
-          limits:
-            cpu: 100m
-            memory: 100Mi
           requests:
             cpu: 100m
             memory: 100Mi
@@ -75,9 +72,6 @@ spec:
         - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/promxy/-/reload"
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
         resources:
-          limits:
-            cpu: 25m
-            memory: 25Mi
           requests:
             cpu: 25m
             memory: 25Mi
