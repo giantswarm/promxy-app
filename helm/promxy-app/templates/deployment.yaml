@@ -61,6 +61,9 @@ spec:
           requests:
             cpu: 100m
             memory: 100Mi
+          limits:
+            cpu: 500m
+            memory: 500Mi
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -73,6 +76,9 @@ spec:
         image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
         resources:
           requests:
+            cpu: 25m
+            memory: 25Mi
+          limits:
             cpu: 25m
             memory: 25Mi
         volumeMounts:
