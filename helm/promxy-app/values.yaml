@@ -16,7 +16,7 @@ project:
 promxy:
   image:
     name: "giantswarm/promxy"
-    tag: "v0.0.60"
+    tag: "v0.0.62"
   port: 8082
 
   mountPath: /etc/promxy
