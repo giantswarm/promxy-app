@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `Ingress` resource for root of the prometheus domain to prepare for
+  moving Promxy to `/`
+
 ## [0.10.0] - 2021-04-19
 
 ### Changed

@@ -22,3 +22,23 @@ room for such suffix.
 {{- define "resource.default.namespace" -}}
 monitoring
 {{- end -}}
+
+{{/*
+Name of the Prometheus Service resource.
+Used here to define Ingress pointing to the main Prometheus instance (one
+currently defined in g8s-prometheus).
+
+TODO: remove when removing Prometheus from g8s-prometheus
+*/}}
+{{- define "resource.prometheus.serviceName" -}}
+prometheus
+{{- end -}}
+
+{{/*
+Port of the Prometheus Service.
+
+TODO: like above, remove when removing Prometheus from g8s-prometheus
+*/}}
+{{- define "resource.prometheus.servicePort" -}}
+9090
+{{- end -}}

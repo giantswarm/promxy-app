@@ -1,0 +1,35 @@
+# TODO: replace `ingress.yaml` with this when removing Prometheus from g8s-prometheus
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "resource.prometheus.serviceName" . }}
+  namespace: {{ include "resource.default.namespace" . }}
+  labels:
+    app: {{ include "resource.prometheus.serviceName" . }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    {{- if .Values.Installation.V1.Monitoring.Prometheus.Letsencrypt }}
+    kubernetes.io/tls-acme: "true"
+    {{- end }}
+    nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+    nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
+    {{- if .Values.Installation.V1.Security.RestrictAccess.Enabled }}
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ .Values.Installation.V1.Security.Subnet.VPN }}"
+    {{- end }}
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.Installation.V1.Monitoring.Prometheus.Host }}
+    {{- if .Values.Installation.V1.Monitoring.Prometheus.Letsencrypt }}
+    secretName: monitoring-prometheus
+    {{- else }}
+    secretName: prometheus-certs-secret
+    {{- end }}
+  rules:
+  - host: {{ .Values.Installation.V1.Monitoring.Prometheus.Host }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ include "resource.prometheus.serviceName" . }}
+          servicePort: {{ include "resource.prometheus.servicePort" . }}
