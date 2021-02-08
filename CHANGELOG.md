@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated promxy to v0.0.67
+
 ## [0.7.0] - 2020-12-09
 
 ### Changed
