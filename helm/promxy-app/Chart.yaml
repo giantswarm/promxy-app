@@ -4,3 +4,5 @@ description: Promxy is a prometheus proxy that makes many shards of prometheus a
 home: https://github.com/giantswarm/promxy
 version: [[ .Version ]]
 appVersion: v0.0.60
+annotations:
+  application.giantswarm.io/team: "atlas"
