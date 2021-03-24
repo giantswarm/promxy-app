@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@2.2.0
+  architect: giantswarm/architect@2.4.1
 
 workflows:
   build:
@@ -13,6 +13,20 @@ workflows:
           app_catalog_test: "control-plane-test-catalog"
           chart: "promxy-app"
           filters:
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: shared-app-collection
+          app_name: "promxy-app"
+          app_namespace: "monitoring"
+          app_collection_repo: "shared-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
 
