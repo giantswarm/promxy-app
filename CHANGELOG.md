@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `application.giantswarm.io/team` annotation to Chart.yaml for routing
 alerts.
+- Add Management Cluster configmap
 
 ## [0.8.0] - 2021-02-08
 
