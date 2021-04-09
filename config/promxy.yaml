@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: management-cluster-promxy-config
+  namespace: giantswarm
+data:
+  values.yaml: |
+    promxy: 
+      serverGroups:
+      - remote_read: true
+        remote_read_path: api/v1/read
+        http_client:
+          dial_timeout: 500ms
+        scheme: http
+        relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_managed_by, __meta_kubernetes_pod_label_app_kubernetes_io_name,
+            __meta_kubernetes_pod_label_app_kubernetes_io_instance]
+          separator: ;
+          regex: prometheus-meta-operator;prometheus;.+
+          action: keep
+        - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_instance]
+          target_label: cluster_id
+          replacement: $1
+          action: replace
+        - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_instance]
+          target_label: __path_prefix__
+          replacement: /$1
+          action: replace
+        kubernetes_sd_configs:
+        - api_server: https://kubernetes.default:443
+          role: pod
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          tls_config:
+            ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+            insecure_skip_verify: true
+        timeout: 2m0s
+        ignore_error: true
