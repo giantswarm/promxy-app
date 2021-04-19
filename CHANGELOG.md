@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2021-04-19
+
 ### Changed
 
 - Updated promxy to v0.0.70
@@ -67,7 +69,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/giantswarm/promxy-app/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/giantswarm/promxy-app/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/giantswarm/promxy-app/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/giantswarm/promxy-app/compare/v0.0.6...v0.7.0
