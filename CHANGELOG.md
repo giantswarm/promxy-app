@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Reverted changes from 0.11.0 as they just moved Promxy to `/` with basic-auth
+
 ## [0.11.0] - 2021-04-20
 
 ### Added
