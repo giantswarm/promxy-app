@@ -16,7 +16,7 @@ data:
         - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_managed_by, __meta_kubernetes_pod_label_app_kubernetes_io_name,
             __meta_kubernetes_pod_label_app_kubernetes_io_instance]
           separator: ;
-          regex: prometheus-operator;prometheus;.+
+          regex: prometheus-meta-operator;prometheus;.+
           action: keep
         - source_labels: [__meta_kubernetes_pod_label_app_kubernetes_io_instance]
           target_label: cluster_id
