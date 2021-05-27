@@ -5,4 +5,5 @@ home: https://github.com/giantswarm/promxy
 version: [[ .Version ]]
 appVersion: v0.0.70
 annotations:
+  config.giantswarm.io/version: 1.x.x
   application.giantswarm.io/team: "atlas"
