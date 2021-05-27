@@ -5,7 +5,7 @@ metadata:
   namespace: {{ include "resource.default.namespace" . }}
   annotations:
     kubernetes.io/ingress.class: nginx
-    {{- if .Values.monitoring.letsencrypt }}
+    {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
     nginx.ingress.kubernetes.io/auth-type: basic

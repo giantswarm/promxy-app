@@ -1,7 +1,7 @@
 monitoring:
-  letsencrypt: true
   prometheus:
     host: ""
+    letsencrypt: true
   promxy:
     htpasswd: ""
 
