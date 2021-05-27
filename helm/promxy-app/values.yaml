@@ -40,3 +40,5 @@ security:
 
 registry:
   domain: quay.io
+  pullSecret:
+    dockerConfigJSON: ""
