@@ -26,7 +26,7 @@ spec:
         runAsGroup: {{ .Values.pod.group.id }}
       containers:
       - name: {{ include "name" . }}
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.image.name }}:{{ .Values.promxy.image.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.promxy.image.name }}:{{ .Values.promxy.image.tag }}"
         args:
         - "--bind-addr=:{{ .Values.promxy.port }}"
         - "--config={{ .Values.promxy.mountPath }}/config.yaml"
@@ -72,7 +72,7 @@ spec:
         args:
         - "--volume-dir={{ .Values.promxy.mountPath }}"
         - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/-/reload"
-        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
         resources:
           requests:
             cpu: 25m

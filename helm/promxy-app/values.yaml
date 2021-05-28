@@ -1,7 +1,9 @@
-Installation:
-  V1:
-    Registry:
-      Domain: quay.io
+monitoring:
+  prometheus:
+    host: ""
+    letsencrypt: true
+  promxy:
+    htpasswd: ""
 
 pod:
   user:
@@ -29,3 +31,14 @@ promxy:
     tag: v0.3.0
 
   serverGroups: []
+
+security:
+  restrictAccess:
+    enabled: false
+  subnet:
+    vpn: ""
+
+registry:
+  domain: quay.io
+  pullSecret:
+    dockerConfigJSON: "Cg=="
