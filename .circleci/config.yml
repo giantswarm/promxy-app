@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@2.11.0
+  architect: giantswarm/architect@3.0.0
 
 workflows:
   build:
@@ -22,8 +22,6 @@ workflows:
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "shared-app-collection"
-          user_configmap_name: "management-cluster-promxy-config"
-          user_configmap_path: "config/promxy.yaml"
           requires:
           - app-catalog
           filters:
@@ -38,8 +36,6 @@ workflows:
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "aws-app-collection"
-          user_configmap_name: "management-cluster-promxy-config"
-          user_configmap_path: "config/promxy.yaml"
           requires:
           - app-catalog
           filters:
@@ -54,8 +50,6 @@ workflows:
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "azure-app-collection"
-          user_configmap_name: "management-cluster-promxy-config"
-          user_configmap_path: "config/promxy.yaml"
           requires:
           - app-catalog
           filters:
@@ -70,8 +64,6 @@ workflows:
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "kvm-app-collection"
-          user_configmap_name: "management-cluster-promxy-config"
-          user_configmap_path: "config/promxy.yaml"
           requires:
           - app-catalog
           filters:
@@ -79,15 +71,13 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
-              
+
       - architect/push-to-app-collection:
           context: architect
           name: vmware-app-collection
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "vmware-app-collection"
-          user_configmap_name: "management-cluster-promxy-config"
-          user_configmap_path: "config/promxy.yaml"
           requires:
           - app-catalog
           filters:
