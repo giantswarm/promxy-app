@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added dual-auth for Promxy at the root of the prometheus domain as OAuth2 is
+  more user-friendly and we can still preserve basic-auth for programmatic
+  access by allowing access if any auth mechanism succeeds.
+
 ## [0.12.0] - 2021-04-27
 
 ### Removed
