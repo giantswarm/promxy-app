@@ -4,7 +4,6 @@ metadata:
   name: {{ include "resource.default.name" . }}
   namespace: {{ include "resource.default.namespace" . }}
   annotations:
-    kubernetes.io/ingress.class: nginx
     {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
@@ -24,6 +23,7 @@ metadata:
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
+  ingressClassName: nginx
   rules:
   - host: {{ .Values.monitoring.prometheus.host }}
     http:
