@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "resource.default.name" . }}-oauth2-proxy
+  namespace: {{ include "resource.default.namespace" . }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.monitoring.prometheus.host }}
+    http:
+      paths:
+      - backend:
+          serviceName: oauth2-proxy
+          servicePort: 4180
+        path: /oauth2
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - {{ .Values.monitoring.prometheus.host }}
+    secretName: prometheus-tls

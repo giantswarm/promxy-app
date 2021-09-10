@@ -32,6 +32,7 @@ spec:
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
         path: /
+        pathType: ImplementationSpecific
   tls:
   - hosts:
     - {{ .Values.monitoring.prometheus.host }}
