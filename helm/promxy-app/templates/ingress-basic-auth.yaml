@@ -7,6 +7,7 @@ metadata:
     {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     # basic-auth for global Promxy to be able to access all installation-level
     # Promxies
     nginx.ingress.kubernetes.io/auth-type: basic
@@ -26,7 +27,7 @@ spec:
       - backend:
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
-        path: /promxy
+        path: /promxy(/|$)(.*)
         pathType: Prefix
   tls:
   - hosts:
