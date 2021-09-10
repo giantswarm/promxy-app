@@ -1,8 +1,18 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: {{ include "resource.default.name" . }}-oauth2-proxy
+  name: {{ include "resource.default.name" . }}-oauth
   namespace: {{ include "resource.default.namespace" . }}
+  annotations:
+    {{- if .Values.monitoring.prometheus.letsencrypt }}
+    kubernetes.io/tls-acme: "true"
+    {{- end }}
+    # OAuth2 SSO access for humans
+    nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+    nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
+    {{- if .Values.security.restrictAccess.enabled }}
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ .Values.security.subnet.vpn }}"
+    {{- end }}
   labels:
     {{- include "labels.common" . | nindent 4 }}
 spec:
@@ -12,10 +22,10 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: oauth2-proxy
-          servicePort: 4180
-        path: /oauth2
-        pathType: ImplementationSpecific
+          serviceName: {{ include "resource.default.name" . }}
+          servicePort: {{ .Values.promxy.port }}
+        path: /
+        pathType: Exact
   tls:
   - hosts:
     - {{ .Values.monitoring.prometheus.host }}

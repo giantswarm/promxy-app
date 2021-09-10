@@ -1,15 +1,17 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: {{ include "resource.default.name" . }}
+  name: {{ include "resource.default.name" . }}-basic-auth
   namespace: {{ include "resource.default.namespace" . }}
   annotations:
     {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
-    # OAuth2 SSO access for humans
-    nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
-    nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
+    # basic-auth for global Promxy to be able to access all installation-level
+    # Promxies
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: {{ include "resource.default.name" . }}
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
     {{- if .Values.security.restrictAccess.enabled }}
     nginx.ingress.kubernetes.io/whitelist-source-range: "{{ .Values.security.subnet.vpn }}"
     {{- end }}
@@ -24,8 +26,8 @@ spec:
       - backend:
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
-        path: /
-        pathType: ImplementationSpecific
+        path: /promxy
+        pathType: Prefix
   tls:
   - hosts:
     - {{ .Values.monitoring.prometheus.host }}
