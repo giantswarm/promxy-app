@@ -51,7 +51,7 @@ workflows:
           app_namespace: "monitoring"
           app_collection_repo: "azure-app-collection"
           requires:
-          - app-catalog
+          - push-to-app-catalog
           filters:
             branches:
               ignore: /.*/
