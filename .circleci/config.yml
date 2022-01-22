@@ -46,7 +46,7 @@ workflows:
 
       - architect/push-to-app-collection:
           context: architect
-          name: "azure-app-collection"
+          name: azure-app-collection
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "azure-app-collection"
@@ -64,6 +64,20 @@ workflows:
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "kvm-app-collection"
+          requires:
+          - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: openstack-app-collection
+          app_name: "promxy-app"
+          app_namespace: "monitoring"
+          app_collection_repo: "openstack-app-collection"
           requires:
           - app-catalog
           filters:
