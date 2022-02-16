@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed Ingress template to use at least `networking.k8s.io/v1beta1` or `networking.k8s.io/v1` where available.
+
 ## [1.13.1] - 2021-09-13
 
 ### Fixed

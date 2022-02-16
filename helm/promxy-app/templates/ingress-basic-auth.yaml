@@ -1,4 +1,8 @@
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
+apiVersion: networking.k8s.io/v1
+{{- else }}
 apiVersion: networking.k8s.io/v1beta1
+{{- end }}
 kind: Ingress
 metadata:
   name: {{ include "resource.default.name" . }}-basic-auth
@@ -24,11 +28,19 @@ spec:
   - host: {{ .Values.monitoring.prometheus.host }}
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
+          service:
+            name: {{ include "resource.default.name" . }}
+            port:
+              number: {{ .Values.promxy.port }}
+{{- else }}
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
-        path: /promxy(/|$)(.*)
-        pathType: ImplementationSpecific
+        path: /
+{{- end }}
   tls:
   - hosts:
     - {{ .Values.monitoring.prometheus.host }}
