@@ -36,7 +36,6 @@ spec:
 {{- else }}
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
-        path: /
 {{- end }}
   tls:
   - hosts:

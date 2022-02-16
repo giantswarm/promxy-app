@@ -28,7 +28,7 @@ spec:
   - host: {{ .Values.monitoring.prometheus.host }}
     http:
       paths:
-      - path: /
+      - path: /promxy(/|$)(.*)
         pathType: Prefix
         backend:
 {{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
@@ -39,7 +39,6 @@ spec:
 {{- else }}
           serviceName: {{ include "resource.default.name" . }}
           servicePort: {{ .Values.promxy.port }}
-        path: /
 {{- end }}
   tls:
   - hosts:
