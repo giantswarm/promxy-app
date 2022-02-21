@@ -102,8 +102,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/giantswarm/compare/v1.14.0...HEAD
-[1.14.0]: https://github.com/giantswarm/giantswarm/compare/v1.13.1...v1.14.0
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.14.0...HEAD
+[1.14.0]: https://github.com/giantswarm/promxy-app/compare/v1.13.1...v1.14.0
 [1.13.1]: https://github.com/giantswarm/promxy-app/compare/v0.13.0...v1.13.1
 [0.13.0]: https://github.com/giantswarm/promxy-app/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/giantswarm/promxy-app/compare/v0.11.0...v0.12.0
