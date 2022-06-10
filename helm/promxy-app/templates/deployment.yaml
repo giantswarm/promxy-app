@@ -24,6 +24,7 @@ spec:
       securityContext:
         runAsUser: {{ .Values.pod.user.id }}
         runAsGroup: {{ .Values.pod.group.id }}
+        runAsNonRoot: true
       containers:
       - name: {{ include "name" . }}
         image: "{{ .Values.registry.domain }}/{{ .Values.promxy.image.name }}:{{ .Values.promxy.image.tag }}"
