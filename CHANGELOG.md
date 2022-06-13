@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fix
+
+- Run promxy as a non root user.
+
 ## [1.14.0] - 2022-02-16
 
 ### Changed
