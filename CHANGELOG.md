@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.15.0] - 2022-06-13
+
 ### Fix
 
 - Run promxy as a non root user.
@@ -106,7 +108,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.14.0...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.15.0...HEAD
+[1.15.0]: https://github.com/giantswarm/promxy-app/compare/v1.14.0...v1.15.0
 [1.14.0]: https://github.com/giantswarm/promxy-app/compare/v1.13.1...v1.14.0
 [1.13.1]: https://github.com/giantswarm/promxy-app/compare/v0.13.0...v1.13.1
 [0.13.0]: https://github.com/giantswarm/promxy-app/compare/v0.12.0...v0.13.0
