@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Changed
+
+- Upgrade promxy from 0.0.70 to 0.0.75 - see [promxy releases](https://github.com/jacksontj/promxy/releases)
+
 ## [1.15.0] - 2022-06-13
 
 ### Fix
