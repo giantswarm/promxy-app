@@ -3,7 +3,7 @@ name: promxy-app
 description: Promxy is a prometheus proxy that makes many shards of prometheus appear as a single API endpoint to the user.
 home: https://github.com/giantswarm/promxy
 version: [[ .Version ]]
-appVersion: v0.0.70
+appVersion: v0.0.75
 annotations:
   config.giantswarm.io/version: 1.x.x
   application.giantswarm.io/team: "atlas"
