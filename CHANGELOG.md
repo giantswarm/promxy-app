@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.16.1] - 2022-11-08
+
+### Changed
+
+- Push to `capa-app-collection`, `cloud-director-app-collection`, `openstack-app-collection` and `vsphere-app-collection`.
+
 ## [1.16.0] - 2022-07-04
 
 ## Changed
@@ -114,7 +120,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.16.0...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.16.1...HEAD
+[1.16.1]: https://github.com/giantswarm/promxy-app/compare/v1.16.0...v1.16.1
 [1.16.0]: https://github.com/giantswarm/promxy-app/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/giantswarm/promxy-app/compare/v1.14.0...v1.15.0
 [1.14.0]: https://github.com/giantswarm/promxy-app/compare/v1.13.1...v1.14.0
