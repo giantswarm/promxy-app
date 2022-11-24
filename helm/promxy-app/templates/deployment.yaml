@@ -57,13 +57,10 @@ spec:
           periodSeconds: 5
           successThreshold: 1
           timeoutSeconds: 3
+        {{- with .Values.promxy.resources }}
         resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 500m
-            memory: 500Mi
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -74,13 +71,10 @@ spec:
         - "--volume-dir={{ .Values.promxy.mountPath }}"
         - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/-/reload"
         image: "{{ .Values.registry.domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
+        {{- with .Values.promxy.configmapReloadResources }}
         resources:
-          requests:
-            cpu: 25m
-            memory: 25Mi
-          limits:
-            cpu: 25m
-            memory: 25Mi
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
