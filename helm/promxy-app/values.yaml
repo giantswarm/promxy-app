@@ -21,6 +21,14 @@ promxy:
     tag: "v0.0.75"
   port: 8082
 
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi
+
   mountPath: /etc/promxy
 
   service:
@@ -29,6 +37,14 @@ promxy:
   configmapReloadImage:
     name: giantswarm/configmap-reload
     tag: v0.3.0
+
+  configmapReloadResources:
+    requests:
+      cpu: 25m
+      memory: 25Mi
+    limits:
+      cpu: 25m
+      memory: 25Mi
 
   serverGroups: []
 
