@@ -18,20 +18,6 @@ workflows:
 
       - architect/push-to-app-collection:
           context: architect
-          name: shared-app-collection
-          app_name: "promxy-app"
-          app_namespace: "monitoring"
-          app_collection_repo: "shared-app-collection"
-          requires:
-          - app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-app-collection:
-          context: architect
           name: aws-app-collection
           app_name: "promxy-app"
           app_namespace: "monitoring"
@@ -88,7 +74,7 @@ workflows:
 
       - architect/push-to-app-collection:
           context: architect
-          name: push-to-cloud-director-app-collection
+          name: cloud-director-app-collection
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "cloud-director-app-collection"
@@ -102,7 +88,7 @@ workflows:
 
       - architect/push-to-app-collection:
           context: architect
-          name: push-to-capa-app-collection
+          name: capa-app-collection
           app_name: "promxy-app"
           app_namespace: "monitoring"
           app_collection_repo: "capa-app-collection"
@@ -114,3 +100,17 @@ workflows:
             tags:
               only: /^v.*/
 
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: gcp-app-collection
+          app_name: "promxy-app"
+          app_namespace: "monitoring"
+          app_collection_repo: "gcp-app-collection"
+          requires:
+            - app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
