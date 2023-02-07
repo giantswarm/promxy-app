@@ -61,13 +61,13 @@ spec:
           successThreshold: 1
           timeoutSeconds: 3
         {{- with .Values.promxy.resources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         securityContext:
           {{- with .Values.securityContext }}
             {{- . | toYaml | nindent 10 }}
           {{- end }}
-        resources:
-          {{- toYaml . | nindent 10 }}
-        {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -79,13 +79,13 @@ spec:
         - "--webhook-url=http://localhost:{{ .Values.promxy.port }}/-/reload"
         image: "{{ .Values.registry.domain }}/{{ .Values.promxy.configmapReloadImage.name }}:{{ .Values.promxy.configmapReloadImage.tag }}"
         {{- with .Values.promxy.configmapReloadResources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         securityContext:
           {{- with .Values.securityContext }}
             {{- . | toYaml | nindent 10 }}
           {{- end }}
-        resources:
-          {{- toYaml . | nindent 10 }}
-        {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
