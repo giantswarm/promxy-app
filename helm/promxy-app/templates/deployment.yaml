@@ -25,6 +25,9 @@ spec:
         runAsUser: {{ .Values.pod.user.id }}
         runAsGroup: {{ .Values.pod.group.id }}
         runAsNonRoot: true
+        {{- with .Values.podSecurityContext }}
+          {{- . | toYaml | nindent 8 }}
+        {{- end }}
       containers:
       - name: {{ include "name" . }}
         image: "{{ .Values.registry.domain }}/{{ .Values.promxy.image.name }}:{{ .Values.promxy.image.tag }}"
@@ -61,6 +64,10 @@ spec:
         resources:
           {{- toYaml . | nindent 10 }}
         {{- end }}
+        securityContext:
+          {{- with .Values.securityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
@@ -75,6 +82,10 @@ spec:
         resources:
           {{- toYaml . | nindent 10 }}
         {{- end }}
+        securityContext:
+          {{- with .Values.securityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         volumeMounts:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
