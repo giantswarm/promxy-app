@@ -61,6 +61,10 @@ spec:
           successThreshold: 1
           timeoutSeconds: 3
         {{- with .Values.promxy.resources }}
+        securityContext:
+          {{- with .Values.securityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         resources:
           {{- toYaml . | nindent 10 }}
         {{- end }}
