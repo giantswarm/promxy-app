@@ -54,6 +54,9 @@ security:
   subnet:
     vpn: ""
 
+ingress:
+  externalDNS: false
+
 registry:
   domain: quay.io
   pullSecret:
