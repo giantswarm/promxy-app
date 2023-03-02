@@ -169,6 +169,14 @@
                 }
             }
         },
+        "ingress": {
+            "type": "object",
+            "properties": {
+                "externalDNS": {
+                    "type": "boolean"
+                }
+            }
+        },
         "registry": {
             "type": "object",
             "properties": {
