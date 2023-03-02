@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.17.2] - 2023-03-02
+
 ### Added
 
 - Add additional annotations on all `ingress` objects to support DNS record creation via `external-dns`.
@@ -137,7 +139,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.17.1...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.17.2...HEAD
+[1.17.2]: https://github.com/giantswarm/promxy-app/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/giantswarm/promxy-app/compare/v1.17.0...v1.17.1
 [1.17.0]: https://github.com/giantswarm/promxy-app/compare/v1.16.1...v1.17.0
 [1.16.1]: https://github.com/giantswarm/promxy-app/compare/v1.16.0...v1.16.1
