@@ -23,7 +23,7 @@ workflows:
           app_namespace: "monitoring"
           app_collection_repo: "aws-app-collection"
           requires:
-          - app-catalog
+            - app-catalog
           filters:
             branches:
               ignore: /.*/
@@ -37,26 +37,13 @@ workflows:
           app_namespace: "monitoring"
           app_collection_repo: "azure-app-collection"
           requires:
-          - app-catalog
+            - app-catalog
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^v.*/
 
-      - architect/push-to-app-collection:
-          context: architect
-          name: openstack-app-collection
-          app_name: "promxy-app"
-          app_namespace: "monitoring"
-          app_collection_repo: "openstack-app-collection"
-          requires:
-          - app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
 
       - architect/push-to-app-collection:
           context: architect
@@ -65,7 +52,7 @@ workflows:
           app_namespace: "monitoring"
           app_collection_repo: "vsphere-app-collection"
           requires:
-          - app-catalog
+            - app-catalog
           filters:
             branches:
               ignore: /.*/
