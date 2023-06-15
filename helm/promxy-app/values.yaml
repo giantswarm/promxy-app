@@ -59,8 +59,6 @@ ingress:
 
 registry:
   domain: quay.io
-  pullSecret:
-    dockerConfigJSON: "Cg=="
 
 # Add seccomp to pod security context
 podSecurityContext:

@@ -90,8 +90,6 @@ spec:
         - mountPath: "{{ .Values.promxy.mountPath }}"
           name: promxy-config
           readOnly: true
-      imagePullSecrets:
-      - name: {{ include "resource.pullSecret.name" . }}
       volumes:
       - name: promxy-config
         configMap:
