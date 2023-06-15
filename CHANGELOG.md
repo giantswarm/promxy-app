@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Stop pushing to `openstack-app-collection`.
+- Remove pull secret from chart.
 
 ## [1.17.2] - 2023-03-02
 
