@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `push to capz-app-collection` to circleci
+
 ## [1.18.0] - 2023-06-15
 
 ### Removed
