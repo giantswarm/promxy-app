@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add `push to capz-app-collection` to circleci
+- Add Kyverno Policy Exceptions.
 
 ## [1.18.0] - 2023-06-15
 

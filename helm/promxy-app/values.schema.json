@@ -2,6 +2,25 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "ingress": {
+            "type": "object",
+            "properties": {
+                "externalDNS": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "kyvernoPolicyExceptions": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "namespace": {
+                    "type": "string"
+                }
+            }
+        },
         "monitoring": {
             "type": "object",
             "properties": {
@@ -166,14 +185,6 @@
                             "type": "integer"
                         }
                     }
-                }
-            }
-        },
-        "ingress": {
-            "type": "object",
-            "properties": {
-                "externalDNS": {
-                    "type": "boolean"
                 }
             }
         },

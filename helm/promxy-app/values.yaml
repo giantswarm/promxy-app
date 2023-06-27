@@ -1,3 +1,8 @@
+# Enable Kyverno PolicyException
+kyvernoPolicyExceptions:
+  enabled: true
+  namespace: giantswarm
+
 monitoring:
   prometheus:
     host: ""
