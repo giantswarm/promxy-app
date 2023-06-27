@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.19.0] - 2023-06-27
+
 ### Added
 
 - Add `push to capz-app-collection` to circleci
@@ -155,7 +157,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.18.0...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.19.0...HEAD
+[1.19.0]: https://github.com/giantswarm/promxy-app/compare/v1.18.0...v1.19.0
 [1.18.0]: https://github.com/giantswarm/promxy-app/compare/v1.17.2...v1.18.0
 [1.17.2]: https://github.com/giantswarm/promxy-app/compare/v1.17.1...v1.17.2
 [1.17.1]: https://github.com/giantswarm/promxy-app/compare/v1.17.0...v1.17.1
