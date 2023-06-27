@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `push to capz-app-collection` to circleci
 - Add Kyverno Policy Exceptions.
 
+### Changed
+
+- Upgrade Promxy to v0.0.81.
+
 ## [1.18.0] - 2023-06-15
 
 ### Removed
