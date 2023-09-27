@@ -27,6 +27,9 @@
                 "prometheus": {
                     "type": "object",
                     "properties": {
+                        "clusterIssuerName": {
+                            "type": "string"
+                        },
                         "host": {
                             "type": "string"
                         },
