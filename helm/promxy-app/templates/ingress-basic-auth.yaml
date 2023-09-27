@@ -10,6 +10,9 @@ metadata:
   annotations:
     {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
+    {{- with .Values.monitoring.prometheus.clusterIssuerName }}
+    cert-manager.io/cluster-issuer: "{{ . }}"
+    {{- end }}
     {{- end }}
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     # basic-auth for global Promxy to be able to access all installation-level

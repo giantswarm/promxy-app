@@ -10,6 +10,9 @@ metadata:
   annotations:
     {{- if .Values.monitoring.prometheus.letsencrypt }}
     kubernetes.io/tls-acme: "true"
+    {{- with .Values.monitoring.prometheus.clusterIssuerName }}
+    cert-manager.io/cluster-issuer: "{{ . }}"
+    {{- end }}
     {{- end }}
     # OAuth2 SSO access for humans
     nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
