@@ -3,6 +3,10 @@ kyvernoPolicyExceptions:
   enabled: true
   namespace: giantswarm
 
+global:
+  podSecurityStandards:
+    enforced: false
+
 monitoring:
   prometheus:
     host: ""
