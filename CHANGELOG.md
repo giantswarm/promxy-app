@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.22.1] - 2023-11-30
+
 ### Changed
 
 - Ingress: Use `ImplementationSpecific`. ([#161](https://github.com/giantswarm/promxy-app/pull/161))
@@ -179,7 +181,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.22.0...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.22.1...HEAD
+[1.22.1]: https://github.com/giantswarm/promxy-app/compare/v1.22.0...v1.22.1
 [1.22.0]: https://github.com/giantswarm/promxy-app/compare/v1.21.0...v1.22.0
 [1.21.0]: https://github.com/giantswarm/promxy-app/compare/v1.20.0...v1.21.0
 [1.20.0]: https://github.com/giantswarm/promxy-app/compare/v1.19.0...v1.20.0
