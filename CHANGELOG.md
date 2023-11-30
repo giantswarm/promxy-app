@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Ingress: Use `ImplementationSpecific`. ([#161](https://github.com/giantswarm/promxy-app/pull/161))
+
 ## [1.22.0] - 2023-10-03
 
 ### Changed
