@@ -7,6 +7,9 @@ global:
   podSecurityStandards:
     enforced: false
 
+ciliumNetworkPolicy:
+  enabled: true
+
 monitoring:
   prometheus:
     host: ""
