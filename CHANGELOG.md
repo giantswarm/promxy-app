@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.23.0] - 2024-01-23
+
 ### Added
 
 - Add `CiliumNetworkPolicy`.
@@ -185,7 +187,8 @@ alerts.
 
 - Create initial chart
 
-[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.22.1...HEAD
+[Unreleased]: https://github.com/giantswarm/promxy-app/compare/v1.23.0...HEAD
+[1.23.0]: https://github.com/giantswarm/promxy-app/compare/v1.22.1...v1.23.0
 [1.22.1]: https://github.com/giantswarm/promxy-app/compare/v1.22.0...v1.22.1
 [1.22.0]: https://github.com/giantswarm/promxy-app/compare/v1.21.0...v1.22.0
 [1.21.0]: https://github.com/giantswarm/promxy-app/compare/v1.20.0...v1.21.0
