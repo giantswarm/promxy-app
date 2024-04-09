@@ -15,8 +15,6 @@ monitoring:
     host: ""
     letsencrypt: true
     clusterIssuerName: ""
-  promxy:
-    htpasswd: ""
 
 pod:
   user:
