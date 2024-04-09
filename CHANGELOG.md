@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove basic auth ingress because central promxy is not a thing.
+
 ## [1.23.0] - 2024-01-23
 
 ### Added

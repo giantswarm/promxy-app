@@ -58,14 +58,6 @@
                             "type": "boolean"
                         }
                     }
-                },
-                "promxy": {
-                    "type": "object",
-                    "properties": {
-                        "htpasswd": {
-                            "type": "string"
-                        }
-                    }
                 }
             }
         },
